@@ -32,18 +32,20 @@ def writeArca(context):
 
     driver.get('https://arca.live/b/dakimakura/write')
 
-    time.sleep(2)
-    driver.find_element_by_css_selector('button.btn.btn-primary').click()
+    time.sleep(3)
+    driver.find_element_by_css_selector('button.btn.btn-outline-danger.mr-auto').click()
     driver.implicitly_wait(3)
 
+    # driver.find_element_by_xpath('//*[@id="category-성인"]').click()
     driver.find_element_by_css_selector('#inputTitle').send_keys('테스트')
     driver.find_element_by_css_selector('#html-1').click()
 
     time.sleep(2)
 
+    driver.execute_script('')
     driver.find_element_by_css_selector(
-        '#article_write_form > div.write-body > div > div.fr-wrapper.show-placeholder > textarea').send_keys(context)
-    driver.implicitly_wait(3)
+        '#article_write_form > div.write-body > div > div.fr-wrapper.show-placeholder > textarea.fr-code').send_keys(context)
+    driver.implicitly_wait(100)
 
     driver.find_element_by_css_selector('#submitBtn').click()
 
